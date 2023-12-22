@@ -1,0 +1,29 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+     MYSQL_ROOT_PASSWORD: secret
+     MYSQL_DATABASE: jobs_db
+     MYSQL_USER: user_scrapper_2
+     MYSQL_PASSWORD: 123456789
+    ports:
+      - 0.0.0.0:3306:3306
+    volumes:
+      - jobs_db:/var/lib/mysql
+
+  python-app2:
+    image: scrapper2
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=jobs_db
+      - DB_USER=user_scrapper_2
+      - DB_PASSWORD=123456789
+    volumes:
+      - ./app:/app  # Replace './app' with your Python application directory
+    command: python main.py
+volumes:
+  jobs_db:
