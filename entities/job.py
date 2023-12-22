@@ -2,10 +2,11 @@ from entities.technology import Technology
 
 
 class Job:
-    def __init__(self, the_id=None, unique_id=None, enterprise_name=None, skills=None, languages=None, name=None, date=None,
+    def __init__(self, the_id=None, unique_id=None, enterprise_name=None, skills=None, languages=None, name=None,
+                 date=None,
                  address=None,
-                 contract_type=None, qualification=None, technology=None):
-        if the_id is not None and unique_id is not None and enterprise_name is not None and skills is not None and languages is not None and name is not None and date is not None and address is not None and contract_type is not None and qualification is not None and technology is not None:
+                 contract_type=None, qualification=None, technology=None, title=None):
+        if the_id is not None and unique_id is not None and enterprise_name is not None and skills is not None and languages is not None and name is not None and date is not None and address is not None and contract_type is not None and qualification is not None and technology is not None and title is not None:
             self._id = the_id
             self._unique_id = unique_id
             self._experience = enterprise_name
@@ -17,6 +18,7 @@ class Job:
             self._contract_type = contract_type
             self._qualification = qualification
             self._technology = technology
+            self._title = title
         else:
             self._id = ''
             self._unique_id = ''
@@ -29,6 +31,7 @@ class Job:
             self._contract_type = ''
             self._qualification = ''
             self._technology = Technology()
+            self._title = ''
 
     @property
     def id(self):
@@ -118,5 +121,13 @@ class Job:
     def technology(self, value):
         self._technology = value
 
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+
     def __str__(self):
-        return f"Job(id={self.id},technology_id={self.technology.id},enterprise_name={self.enterprise_name},skills=[{self.skills}],date={self.date},address={self.address},contract_type={self.contract_type},qualification={self.qualification},experience={self.experience},language={self.languages}\n"
+        return f"Job(id={self.id},technology_id={self.technology.id},enterprise_name={self.enterprise_name},skills=[{self.skills}],date={self.date},address={self.address},contract_type={self.contract_type},qualification={self.qualification},experience={self.experience},language={self.languages},title={self._title}\n"
