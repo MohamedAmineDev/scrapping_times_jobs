@@ -1,16 +1,7 @@
-# This is a sample Python script.
+from fetch_job import fetch_job
+from entities.technology import Technology
+from fetch_website import fetch_website
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# link = 'https://www.timesjobs.com/job-detail/python-developer-ivan-infotech-pvt-ltd-kolkata-2-to-5-yrs-jobid-1h6sLaqbaBZzpSvf__PLUS__uAgZw==&source=srp'
+# fetch_job(link, Technology(1, ''), '55')
+fetch_website('Python')
