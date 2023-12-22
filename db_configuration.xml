@@ -1,0 +1,6 @@
+<databaseConfig>
+    <host>127.0.0.1</host>
+    <database>pds_db</database>
+    <user>user_scrapper_2</user>
+    <password>123456789</password>
+</databaseConfig>

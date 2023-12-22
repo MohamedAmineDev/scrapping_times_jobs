@@ -1,9 +1,13 @@
 def fetch_enterprise_name(soup):
-    value = soup.find('ul', class_='jd-comp-main')
+    """value = soup.find('ul', class_='jd-comp-main')
     if value is not None:
         enterprise_name_element = value.find('span', class_='basic-info-dtl')
         if enterprise_name_element is not None:
             return enterprise_name_element.text.strip().replace('.', '').replace(',', '')
+    """
+    value=soup.find('h1',class_='jd-job-title')
+    if value is not None:
+        return value.text.strip()
     return 'Unknown'
 
 
